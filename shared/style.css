@@ -1,0 +1,46 @@
+/* Estilos globais para o sistema Coffee Farm ERP */
+/* Este arquivo contém estilos compartilhados por todas as páginas */
+
+body {
+    font-family: Arial, sans-serif;  /* Fonte padrão */
+    margin: 0;  /* Remove margens padrão */
+    padding: 0;  /* Remove preenchimentos padrão */
+    background-color: #f4f4f4;  /* Cor de fundo clara */
+    color: #333;  /* Cor do texto */
+}
+
+h1, h2 {
+    color: #2c3e50;  /* Cor dos títulos */
+}
+
+nav {
+    background-color: #34495e;  /* Cor de fundo do menu */
+    padding: 10px;  /* Espaçamento interno */
+}
+
+nav ul {
+    list-style-type: none;  /* Remove marcadores da lista */
+    padding: 0;  /* Remove preenchimento */
+    margin: 0;  /* Remove margem */
+}
+
+nav li {
+    display: inline;  /* Itens lado a lado */
+    margin-right: 20px;  /* Espaço entre itens */
+}
+
+nav a {
+    color: white;  /* Cor dos links */
+    text-decoration: none;  /* Remove sublinhado */
+    padding: 5px 10px;  /* Espaçamento interno dos links */
+}
+
+nav a:hover {
+    background-color: #2c3e50;  /* Cor ao passar o mouse */
+}
+
+main {
+    padding: 20px;  /* Espaçamento interno da seção principal */
+    max-width: 1200px;  /* Largura máxima */
+    margin: 0 auto;  /* Centraliza o conteúdo */
+}
