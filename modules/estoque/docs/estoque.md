@@ -69,7 +69,7 @@ Imagine que o módulo de **Compras** acabou de confirmar o recebimento de 50 sac
 // Arquivo: modules/compras/backend/compras_service.php
 
 // Inclui o serviço do módulo de estoque
-require_once __DIR__ . '/../../estoque/backend/estoque_service.php';
+require_once __DIR__ . '/../../estoque/backend/service/EstoqueService.php';
 
 class ComprasService
 {
