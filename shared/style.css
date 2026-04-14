@@ -115,17 +115,19 @@ a:hover {
 }
 
 /*
-  Tamanho padrão de ícones de logo em headers: 28–32px de altura.
-  Usamos 32px — tamanho comum em ferramentas SaaS (Notion, Linear, etc.).
-  Os atributos width/height no <img> (em header.php) garantem o mesmo tamanho
-  mesmo antes do CSS carregar, evitando o "salto" de layout.
+  O ícone do header (cafe_erp_icon_button.svg) tem viewBox 680×200 com o grão
+  centralizado. object-fit: cover recorta o centro da imagem, mostrando
+  exatamente o ícone circular sem esticar o SVG.
+  Tamanho: 40×40px — levemente maior que antes para dar destaque ao ícone
+  que agora tem mais detalhes visuais (gradiente, folhas, reflexo).
 */
 .app-logo img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
-  /* Inverte as cores do SVG para ficar legível no fundo escuro */
-  filter: brightness(0) invert(1);
+  object-fit: cover;        /* recorta o centro do viewBox largo para caber no quadrado */
+  object-position: center;  /* garante que o grão (centro do SVG) fique visível */
+  border-radius: 50%;       /* deixa o ícone circular, combinando com o design do SVG */
 }
 
 /* Nome da aplicação ao lado do ícone */

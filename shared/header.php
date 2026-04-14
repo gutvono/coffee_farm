@@ -88,10 +88,10 @@ if (!isset($page_title)) {
         <!-- width e height no <img> garantem o tamanho correto mesmo antes do CSS carregar -->
         <a href="<?= $root ?>index.php" class="app-logo">
             <img
-                src="<?= $root ?>shared/assets/logo.svg"
+                src="<?= $root ?>shared/assets/cafe_erp_icon_button.svg"
                 alt="Coffee Farm ERP logo"
-                width="32"
-                height="32"
+                width="40"
+                height="40"
             >
             <span class="app-name">Coffee Farm ERP</span>
         </a>

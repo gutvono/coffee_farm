@@ -21,8 +21,14 @@ include 'shared/sidebar.php';
 
 <main class="page-content">
 
-    <h1 class="page-title">Bem-vindo ao Coffee Farm ERP</h1>
-    <p class="page-subtitle">Sistema de gestão para fazenda de café arábica</p>
+    <!-- Logo principal da fazenda — exibida apenas nesta página de entrada -->
+    <div class="dashboard-hero">
+        <img
+            src="shared/assets/cafe_erp_logo_principal.svg"
+            alt="Café Gestor ERP — Gestão inteligente do campo à xícara"
+            class="dashboard-logo"
+        >
+    </div>
 
     <!-- Grade de cards de acesso rápido aos módulos -->
     <div class="module-grid">
@@ -115,8 +121,28 @@ include 'shared/sidebar.php';
 
 </main>
 
-<!-- Estilos específicos da página inicial (grade de cards) -->
+<!-- Estilos específicos da página inicial (grade de cards e hero) -->
 <style>
+
+/* Área de boas-vindas com a logo principal */
+.dashboard-hero {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+}
+
+/*
+  Logo principal: o SVG tem viewBox 680×340 (proporção 2:1).
+  max-width controla a largura máxima; height: auto mantém a proporção.
+  Sem object-fit pois queremos exibir o SVG inteiro (não recortar).
+*/
+.dashboard-logo {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    display: block;
+}
+
 .module-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
