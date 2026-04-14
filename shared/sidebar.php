@@ -155,52 +155,72 @@ function sidebarIsActive(string $module): bool {
      organizado: o JS e o elemento que ele controla ficam juntos.
      ============================================================ -->
 <script>
-(function () {
-    // Seleciona os elementos que participam do toggle
-    const sidebar  = document.getElementById('sidebar');
-    const toggle   = document.getElementById('sidebar-toggle');
-    const overlay  = document.getElementById('sidebar-overlay');
+// ------------------------------------------------------------
+// DOMContentLoaded garante que todos os elementos HTML já foram
+// criados antes de o script tentar acessá-los. Sem isso, o script
+// pode rodar antes do botão de toggle existir no DOM.
+// ------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function () {
 
-    // ------------------------------------------------------------
-    // Chave usada no localStorage para persistir o estado do sidebar.
-    // Assim, ao navegar entre páginas, o sidebar permanece como o
-    // usuário deixou (aberto ou fechado).
-    // ------------------------------------------------------------
+    const sidebar = document.getElementById('sidebar');
+    const toggle  = document.getElementById('sidebar-toggle');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    // Proteção: se algum elemento não existir na página, para aqui
+    if (!sidebar || !toggle || !overlay) return;
+
+    // Chave do localStorage — persiste o estado entre navegações
     const STORAGE_KEY = 'cfarm_sidebar_collapsed';
 
+    // Largura de corte que define o comportamento "mobile"
+    // Deve coincidir com o breakpoint do CSS (768px)
+    const MOBILE_BREAKPOINT = 768;
+
     // ------------------------------------------------------------
-    // Aplica o estado inicial ao carregar a página.
-    // Se o usuário tinha fechado o sidebar anteriormente, mantém fechado.
+    // isMobile()
+    // Retorna true se a viewport for menor que o breakpoint mobile.
     // ------------------------------------------------------------
-    if (localStorage.getItem(STORAGE_KEY) === 'true') {
+    function isMobile() {
+        return window.innerWidth <= MOBILE_BREAKPOINT;
+    }
+
+    // ------------------------------------------------------------
+    // Estado inicial ao carregar a página:
+    //   - Mobile: sidebar começa FECHADO (o usuário abre quando quiser)
+    //   - Desktop: respeita o último estado salvo no localStorage
+    // ------------------------------------------------------------
+    if (isMobile()) {
+        sidebar.classList.add('sidebar--collapsed');
+    } else if (localStorage.getItem(STORAGE_KEY) === 'true') {
         sidebar.classList.add('sidebar--collapsed');
     }
 
     // ------------------------------------------------------------
     // toggleSidebar()
-    // Alterna a classe .sidebar--collapsed no elemento <aside>.
-    // O CSS cuida da animação de abrir/fechar via transition: width.
-    // Salva o novo estado no localStorage.
+    // Usa a mesma classe .sidebar--collapsed tanto no desktop quanto
+    // no mobile — o CSS cuida da diferença visual (overlay, position).
     // ------------------------------------------------------------
     function toggleSidebar() {
-        const isCollapsed = sidebar.classList.toggle('sidebar--collapsed');
+        const isNowCollapsed = sidebar.classList.toggle('sidebar--collapsed');
 
-        // No mobile, controla também a visibilidade do overlay
-        overlay.classList.toggle('sidebar-overlay--visible', !isCollapsed);
+        // Overlay: visível quando o sidebar está ABERTO no mobile
+        overlay.classList.toggle('sidebar-overlay--visible', !isNowCollapsed);
 
-        // Salva o estado para persistir entre páginas
-        localStorage.setItem(STORAGE_KEY, isCollapsed);
+        // Persiste o estado para páginas seguintes (apenas no desktop;
+        // no mobile sempre começa fechado, então não salvar evita confusão)
+        if (!isMobile()) {
+            localStorage.setItem(STORAGE_KEY, isNowCollapsed);
+        }
     }
 
-    // Abre/fecha ao clicar no botão hambúrguer do header
+    // Clique no botão hambúrguer (header)
     toggle.addEventListener('click', toggleSidebar);
 
-    // No mobile: fecha o sidebar ao clicar no overlay (fundo escuro)
+    // Clique no fundo escuro (mobile): fecha o sidebar
     overlay.addEventListener('click', function () {
         sidebar.classList.add('sidebar--collapsed');
         overlay.classList.remove('sidebar-overlay--visible');
-        localStorage.setItem(STORAGE_KEY, 'true');
     });
 
-})();
+});
 </script>

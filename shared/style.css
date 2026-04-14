@@ -194,16 +194,21 @@ a:hover {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;                     /* espaço entre links (era 2px, muito apertado) */
   padding: 0 var(--space-sm);
 }
 
-/* Cada link de módulo */
+/* Cada link de módulo
+   Padding vertical de 11px — espaço confortável sem desperdiçar altura.
+   O valor em px é um fallback caso as variáveis CSS não carreguem. */
 .sidebar-link {
   display: flex;
   align-items: center;
+  gap: 8px;
   gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
+  padding: 11px 16px;
+  padding: 11px var(--space-md);
+  border-radius: 8px;
   border-radius: var(--radius-md);
   color: var(--green-light);
   font-size: var(--font-size-sm);
@@ -523,29 +528,31 @@ a:hover {
 
 @media (max-width: 768px) {
 
-  /* No mobile, o sidebar fica por cima do conteúdo (position fixed) */
+  /*
+    No mobile o sidebar flutua sobre o conteúdo (position: fixed) em vez de
+    empurrar o layout para o lado. O estado aberto/fechado é controlado pela
+    classe .sidebar--collapsed — a MESMA usada no desktop.
+    O JavaScript (sidebar.php) adiciona .sidebar--collapsed automaticamente
+    quando a viewport é mobile ao carregar a página.
+  */
   .sidebar {
     position: fixed;
+    top: 56px;                    /* fallback pixel caso --header-height não carregue */
     top: var(--header-height);
     left: 0;
     bottom: 0;
     z-index: 50;
-    /* Sidebar começa fechado no mobile */
-    width: 0;
+    /* NÃO definir width aqui — deixar .sidebar--collapsed cuidar disso */
   }
 
-  /* Aberto no mobile: recupera largura total */
-  .sidebar.sidebar--open-mobile {
-    width: var(--sidebar-width);
-  }
-
-  /* O overlay só aparece no mobile */
+  /* O overlay aparece ao abrir o sidebar no mobile */
   .sidebar-overlay--visible {
     display: block;
   }
 
   /* Conteúdo ocupa 100% da largura no mobile */
   .page-content {
+    padding: 16px;
     padding: var(--space-md);
   }
 }
