@@ -1,68 +1,62 @@
 <?php
-// Arquivo: EstoqueController
-// Responsável por intermediar o frontend e o repository
-// Recebe requisições, chama métodos do repository e retorna resultados
+// =============================================================
+// EstoqueController
+// Responsável por processar as requisições vindas do frontend
+// e repassá-las ao EstoqueService.
+//
+// O controller NÃO contém regras de negócio — ele apenas:
+//   1. Lê os dados da requisição (GET/POST)
+//   2. Chama o método correto do Service
+//   3. Retorna os dados para a view
+// =============================================================
 
-require_once __DIR__ . '/estoque_repository.php'; // Incluir o repository
-require_once __DIR__ . '/../../../config/database.php'; // Incluir a conexão PDO
+require_once __DIR__ . '/estoque_service.php';
 
 class EstoqueController {
-    private $repository;
 
-    // Construtor: Inicializa o repository com a conexão PDO
-    public function __construct() {
-        global $pdo; // Usar a variável global do database.php
-        $this->repository = new EstoqueRepository($pdo);
+    // -------------------------------------------------------------
+    // Lista todos os produtos ativos com seus saldos.
+    // Usado pela view principal do módulo (index.php).
+    // -------------------------------------------------------------
+    public function listarProdutos() {
+        return EstoqueService::getProdutos();
     }
 
-    // Função: Listar estoque
-    // Chama o repository e retorna os dados
-    public function listarEstoque() {
-        return $this->repository->listarEstoque();
+    // -------------------------------------------------------------
+    // Busca um produto específico pelo ID.
+    // Retorna null se o produto não existir.
+    // -------------------------------------------------------------
+    public function buscarProduto($id) {
+        return EstoqueService::getProduto($id);
     }
 
-    // Função: Registrar entrada de estoque
-    // Recebe dados do frontend, valida e chama o repository
-    public function registrarEntradaEstoque($dados) {
-        // Validar dados básicos
-        if (!isset($dados['id_produto']) || !isset($dados['quantidade']) || $dados['quantidade'] <= 0) {
-            return ['sucesso' => false, 'mensagem' => 'Dados inválidos para entrada de estoque.'];
-        }
-
-        $id_produto = (int) $dados['id_produto'];
-        $quantidade = (float) $dados['quantidade'];
-        $motivo = $dados['motivo'] ?? '';
-
-        // Chamar repository
-        $sucesso = $this->repository->registrarEntradaEstoque($id_produto, $quantidade, $motivo);
-
-        if ($sucesso) {
-            return ['sucesso' => true, 'mensagem' => 'Entrada de estoque registrada com sucesso.'];
-        } else {
-            return ['sucesso' => false, 'mensagem' => 'Erro ao registrar entrada de estoque.'];
-        }
+    // -------------------------------------------------------------
+    // Consulta o saldo total de um produto (todos os depósitos).
+    // -------------------------------------------------------------
+    public function consultarSaldo($produtoId) {
+        return EstoqueService::getSaldo($produtoId);
     }
 
-    // Função: Registrar saída de estoque
-    // Recebe dados do frontend, valida e chama o repository
-    public function registrarSaidaEstoque($dados) {
-        // Validar dados básicos
-        if (!isset($dados['id_produto']) || !isset($dados['quantidade']) || $dados['quantidade'] <= 0) {
-            return ['sucesso' => false, 'mensagem' => 'Dados inválidos para saída de estoque.'];
-        }
+    // -------------------------------------------------------------
+    // Consulta o saldo de um produto em um depósito específico.
+    // -------------------------------------------------------------
+    public function consultarSaldoPorDeposito($produtoId, $depositoId) {
+        return EstoqueService::getSaldoPorDeposito($produtoId, $depositoId);
+    }
 
-        $id_produto = (int) $dados['id_produto'];
-        $quantidade = (float) $dados['quantidade'];
-        $motivo = $dados['motivo'] ?? '';
+    // -------------------------------------------------------------
+    // Lista o histórico de movimentações de um produto.
+    // -------------------------------------------------------------
+    public function listarMovimentacoes($produtoId) {
+        return EstoqueService::getMovimentacoes($produtoId);
+    }
 
-        // Chamar repository
-        $sucesso = $this->repository->registrarSaidaEstoque($id_produto, $quantidade, $motivo);
-
-        if ($sucesso) {
-            return ['sucesso' => true, 'mensagem' => 'Saída de estoque registrada com sucesso.'];
-        } else {
-            return ['sucesso' => false, 'mensagem' => 'Erro ao registrar saída de estoque (quantidade insuficiente ou erro interno).'];
-        }
+    // -------------------------------------------------------------
+    // Lista todos os depósitos ativos.
+    // Usado em selects/filtros do frontend.
+    // -------------------------------------------------------------
+    public function listarDepositos() {
+        return EstoqueService::getDepositos();
     }
 }
 ?>
