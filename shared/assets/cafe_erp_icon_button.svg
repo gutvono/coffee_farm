@@ -1,0 +1,42 @@
+<svg width="100%" viewBox="0 0 680 200" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Ícone de grão de café — botão de homepage</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Logo compacta em estilo cartoon de um grão de café estilizado, adequada para uso como botão de homepage de um ERP para fazenda de café</desc>
+
+  <defs>
+    <linearGradient id="bean-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6B3A1F"/>
+      <stop offset="100%" stop-color="#3D1E08"/>
+    </linearGradient>
+    <linearGradient id="bean-shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B4E2A" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#3D1E08" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo circular do botão -->
+  <circle cx="340" cy="100" r="78" fill="#FDF6EC" style="fill:rgb(253, 246, 236);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="100" r="78" fill="none" stroke="#D4A56A" stroke-width="2.5" style="fill:none;stroke:rgb(212, 165, 106);color:rgb(255, 255, 255);stroke-width:2.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Sombra suave do grão -->
+  <ellipse cx="343" cy="155" rx="38" ry="8" fill="#3D1E08" opacity="0.12" style="fill:rgb(61, 30, 8);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.12;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Corpo do grão — forma oval característica do grão de café -->
+  <ellipse cx="340" cy="104" rx="36" ry="50" fill="url(#bean-grad)" transform="rotate(-8, 340, 104)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Reflexo no grão -->
+  <ellipse cx="327" cy="82" rx="12" ry="18" fill="url(#bean-shine)" transform="rotate(-8, 327, 82)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Linha central do grão (sulco característico) -->
+  <path d="M325 62 Q310 104 325 146" fill="none" stroke="#2A1205" stroke-width="3" stroke-linecap="round" style="fill:none;stroke:rgb(42, 18, 5);color:rgb(255, 255, 255);stroke-width:3px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Folhinhas decorativas acima -->
+  <ellipse cx="318" cy="48" rx="10" ry="6" fill="#4A7C3F" transform="rotate(-30, 318, 48)" style="fill:rgb(74, 124, 63);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="334" cy="43" rx="10" ry="6" fill="#5A9A4E" transform="rotate(10, 334, 43)" style="fill:rgb(90, 154, 78);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="350" cy="46" rx="9" ry="5" fill="#4A7C3F" transform="rotate(40, 350, 46)" style="fill:rgb(74, 124, 63);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Haste -->
+  <path d="M334 50 Q335 56 336 62" fill="none" stroke="#3A6030" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:rgb(58, 96, 48);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Brilhinho no canto superior -->
+  <circle cx="324" cy="74" r="4" fill="white" opacity="0.18" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.18;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+</svg>

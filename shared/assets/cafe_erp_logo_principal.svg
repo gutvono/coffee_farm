@@ -1,0 +1,115 @@
+<svg width="100%" viewBox="0 0 680 340" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Logo principal — CaféGestor ERP para fazenda de café</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Logo elaborada para sistema ERP de fazenda de café, com grão central estilizado, elementos de folhagem, nome do sistema e tagline</desc>
+
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDF6EC"/>
+      <stop offset="100%" stop-color="#F5E8D0"/>
+    </linearGradient>
+    <linearGradient id="bean2-grad" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#7A4220"/>
+      <stop offset="60%" stop-color="#4D2510"/>
+      <stop offset="100%" stop-color="#2E1508"/>
+    </linearGradient>
+    <linearGradient id="bean2-shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A05A30" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#4D2510" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arc-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4A7C3F"/>
+      <stop offset="50%" stop-color="#6BAE5C"/>
+      <stop offset="100%" stop-color="#4A7C3F"/>
+    </linearGradient>
+    <linearGradient id="arc-grad2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C07830"/>
+      <stop offset="50%" stop-color="#D4943E"/>
+      <stop offset="100%" stop-color="#C07830"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo do cartão -->
+  <rect x="40" y="20" width="600" height="300" rx="20" fill="url(#bg-grad)" stroke="#D4A56A" stroke-width="1.5" style="stroke:rgb(212, 165, 106);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Detalhe de linha fina interna decorativa -->
+  <rect x="52" y="32" width="576" height="276" rx="14" fill="none" stroke="#E8C98A" stroke-width="0.8" opacity="0.6" style="fill:none;stroke:rgb(232, 201, 138);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ══ EMBLEMA CENTRAL ══ -->
+
+  <!-- Anel externo ornamental -->
+  <circle cx="200" cy="172" r="92" fill="none" stroke="#D4A56A" stroke-width="1" stroke-dasharray="4 6" opacity="0.7" style="fill:none;stroke:rgb(212, 165, 106);color:rgb(255, 255, 255);stroke-width:1px;stroke-dasharray:4px, 6px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Anel intermediário -->
+  <circle cx="200" cy="172" r="82" fill="#FFF8EF" stroke="#C8943A" stroke-width="1.5" style="fill:rgb(255, 248, 239);stroke:rgb(200, 148, 58);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Bandas ornamentais (arcos superior e inferior) -->
+  <!-- Arco superior verde com folhas -->
+  <path d="M128 130 Q200 90 272 130" fill="none" stroke="url(#arc-grad)" stroke-width="5" stroke-linecap="round" style="fill:none;color:rgb(255, 255, 255);stroke-width:5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Arco inferior dourado -->
+  <path d="M130 216 Q200 256 270 216" fill="none" stroke="url(#arc-grad2)" stroke-width="5" stroke-linecap="round" style="fill:none;color:rgb(255, 255, 255);stroke-width:5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Pequenas decorações no arco verde -->
+  <circle cx="160" cy="112" r="3.5" fill="#5A9A4E" style="fill:rgb(90, 154, 78);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="200" cy="100" r="3.5" fill="#4A7C3F" style="fill:rgb(74, 124, 63);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="240" cy="112" r="3.5" fill="#5A9A4E" style="fill:rgb(90, 154, 78);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Estrelinhas/pontos no arco dourado -->
+  <circle cx="162" cy="238" r="3" fill="#C07830" style="fill:rgb(192, 120, 48);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="200" cy="250" r="3" fill="#D4943E" style="fill:rgb(212, 148, 62);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="238" cy="238" r="3" fill="#C07830" style="fill:rgb(192, 120, 48);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ══ GRÃO CENTRAL ══ -->
+
+  <!-- Sombra -->
+  <ellipse cx="204" cy="208" rx="42" ry="9" fill="#2E1508" opacity="0.12" style="fill:rgb(46, 21, 8);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.12;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Corpo do grão grande -->
+  <ellipse cx="200" cy="172" rx="40" ry="58" fill="url(#bean2-grad)" transform="rotate(-5, 200, 172)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Reflexo -->
+  <ellipse cx="185" cy="145" rx="13" ry="20" fill="url(#bean2-shine)" transform="rotate(-5, 185, 145)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Sulco central -->
+  <path d="M183 122 Q165 172 183 222" fill="none" stroke="#1A0A03" stroke-width="3.5" stroke-linecap="round" style="fill:none;stroke:rgb(26, 10, 3);color:rgb(255, 255, 255);stroke-width:3.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Folhas laterais do grão -->
+  <!-- Folha esquerda -->
+  <ellipse cx="152" cy="155" rx="16" ry="8" fill="#4A7C3F" transform="rotate(-40, 152, 155)" style="fill:rgb(74, 124, 63);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M152 155 Q160 162 170 172" fill="none" stroke="#3A6030" stroke-width="1.5" stroke-linecap="round" style="fill:none;stroke:rgb(58, 96, 48);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Folha direita -->
+  <ellipse cx="248" cy="155" rx="16" ry="8" fill="#5A9A4E" transform="rotate(40, 248, 155)" style="fill:rgb(90, 154, 78);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M248 155 Q240 162 230 172" fill="none" stroke="#4A7C3F" stroke-width="1.5" stroke-linecap="round" style="fill:none;stroke:rgb(74, 124, 63);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Folhas acima -->
+  <ellipse cx="185" cy="112" rx="12" ry="6" fill="#4A7C3F" transform="rotate(-25, 185, 112)" style="fill:rgb(74, 124, 63);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="200" cy="106" rx="13" ry="6" fill="#5A9A4E" transform="rotate(5, 200, 106)" style="fill:rgb(90, 154, 78);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="216" cy="112" rx="11" ry="6" fill="#4A7C3F" transform="rotate(30, 216, 112)" style="fill:rgb(74, 124, 63);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Haste central acima -->
+  <path d="M200 116 Q201 122 201 130" fill="none" stroke="#3A6030" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:rgb(58, 96, 48);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Brilhinho do grão -->
+  <circle cx="183" cy="142" r="5" fill="white" opacity="0.15" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ══ TEXTO ══ -->
+
+  <!-- Nome principal -->
+  <text x="358" y="138" font-family="Georgia, serif" font-size="46" font-weight="700" fill="#3D1E08" letter-spacing="1" style="fill:rgb(61, 30, 8);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:46px;font-weight:700;text-anchor:start;dominant-baseline:auto">Café</text>
+  <text x="358" y="185" font-family="Georgia, serif" font-size="36" font-weight="400" fill="#6B3A1F" letter-spacing="3" style="fill:rgb(107, 58, 31);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:36px;font-weight:400;text-anchor:start;dominant-baseline:auto">GESTOR</text>
+
+  <!-- Linha separadora -->
+  <line x1="358" y1="198" x2="620" y2="198" stroke="#D4A56A" stroke-width="1.2" style="fill:rgb(0, 0, 0);stroke:rgb(212, 165, 106);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Tagline -->
+  <text x="358" y="220" font-family="Georgia, serif" font-size="13" fill="#8B6040" letter-spacing="2" font-style="italic" style="fill:rgb(139, 96, 64);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:13px;font-weight:400;font-style:italic;text-anchor:start;dominant-baseline:auto">Gestão inteligente do campo à xícara</text>
+
+  <!-- Badges de módulos -->
+  <rect x="358" y="244" width="66" height="22" rx="11" fill="#4A7C3F" opacity="0.15" style="fill:rgb(74, 124, 63);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="391" y="259" font-family="sans-serif" font-size="10" fill="#3A6030" text-anchor="middle" font-weight="500" style="fill:rgb(58, 96, 48);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Produção</text>
+
+  <rect x="432" y="244" width="56" height="22" rx="11" fill="#C07830" opacity="0.15" style="fill:rgb(192, 120, 48);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="460" y="259" font-family="sans-serif" font-size="10" fill="#7A4A18" text-anchor="middle" font-weight="500" style="fill:rgb(122, 74, 24);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Colheita</text>
+
+  <rect x="496" y="244" width="56" height="22" rx="11" fill="#6B3A1F" opacity="0.12" style="fill:rgb(107, 58, 31);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.12;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="524" y="259" font-family="sans-serif" font-size="10" fill="#4D2510" text-anchor="middle" font-weight="500" style="fill:rgb(77, 37, 16);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Estoque</text>
+
+  <rect x="560" y="244" width="58" height="22" rx="11" fill="#D4943E" opacity="0.15" style="fill:rgb(212, 148, 62);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.15;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="589" y="259" font-family="sans-serif" font-size="10" fill="#8B5820" text-anchor="middle" font-weight="500" style="fill:rgb(139, 88, 32);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:10px;font-weight:500;text-anchor:middle;dominant-baseline:auto">Vendas</text>
+
+</svg>
