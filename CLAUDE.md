@@ -69,9 +69,53 @@ Modules share one database. Cross-module relationships are handled via foreign k
 - `funcionario`, `folha_pagamento` — HR/payroll
 - `ativo` — farm assets with depreciation
 
-## Conventions
+## Frontend Layout
+
+Every page follows this four-line include pattern:
+
+```php
+$root       = '../../../'; // relative path to project root ('' for root index.php)
+$page_title = 'Module Name';
+$module_css = 'style.css'; // optional, loaded by header.php
+include $root . 'shared/header.php';
+include $root . 'shared/sidebar.php';
+```
+
+Then a `<main class="page-content">` block, then `include $root . 'shared/footer.php'`.
+
+`header.php` opens `<html>`, `<body>`, `.app-wrapper`, `.app-header`, and `.app-body` (an unclosed div). `footer.php` closes `.app-body` and `.app-wrapper`. The `$root` variable is used inside header and sidebar for all asset `href`/`src` paths, so it must be set before including either file.
+
+### CSS layers
+
+| File | Purpose |
+|---|---|
+| `shared/variables.css` | All CSS custom properties (`--color-primary`, `--space-md`, etc.) |
+| `shared/style.css` | Global layout, sidebar, header, and reusable components (`.card`, `.data-table`, `.btn`, `.badge`, `.alert`, `.form-*`) |
+| `modules/<name>/frontend/style.css` | Module-specific overrides only |
+
+Never hard-code colors or spacing values directly in CSS — always use variables from `variables.css`.
+
+### Shared components
+
+- `shared/assets/logo.svg` — SVG logo, loaded in header via `$root`
+- `shared/sidebar.php` — renders `<aside class="sidebar">` and the inline JS toggle (uses `localStorage` to persist open/closed state)
+- `shared/menu.php` — deprecated, replaced by `sidebar.php`
+
+The sidebar's active link detection uses `sidebarIsActive($module)` which checks `$_SERVER['PHP_SELF']` for the module name.
+
+### Reusable CSS classes (reference for students)
+
+`.card` / `.card-title` — white panel with border  
+`.data-table` — striped table with hover  
+`.btn` + `.btn-primary` / `.btn-secondary` / `.btn-danger` — buttons  
+`.badge` + `.badge-success` / `.badge-error` / `.badge-neutral` — inline status labels  
+`.alert` + `.alert-success` / `.alert-error` — feedback messages  
+`.form-group` / `.form-label` / `.form-input` / `.form-select` / `.form-row` — form fields  
+`.page-title` / `.page-subtitle` — page headings  
+
+## Backend Conventions
 
 - Controller methods return `['sucesso' => bool, 'mensagem' => string]` for write operations.
 - User-facing output always uses `htmlspecialchars()` to prevent XSS.
-- The `estoque` module has two controller files: the stub `controller.php` and the full implementation `estoque_controller.php` — use `estoque_controller.php` as the reference for how controllers should be implemented.
+- The `estoque` module is the reference implementation: `estoque_repository.php` → `estoque_service.php` → `estoque_controller.php`.
 - Branch naming convention: `feature/<module>` (e.g., `feature/estoque`).

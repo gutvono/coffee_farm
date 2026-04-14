@@ -1,10 +1,22 @@
 <?php
-// Página inicial do módulo comercial
-include '../../../shared/header.php';
-include '../../../shared/menu.php';
+$root       = '../../../';
+$page_title = 'Comercial';
+$module_css = 'style.css';
+
+include $root . 'shared/header.php';
+include $root . 'shared/sidebar.php';
 ?>
-<h1>Bem-vindo ao Módulo Comercial</h1>
-<p>Aqui você gerencia as vendas e clientes.</p>
-<?php
-include '../../../shared/footer.php';
-?>
+
+<main class="page-content">
+
+    <h1 class="page-title">Comercial</h1>
+    <p class="page-subtitle">Gestão de pedidos de venda e clientes</p>
+
+    <div class="card">
+        <h2 class="card-title">Em desenvolvimento</h2>
+        <p>O conteúdo deste módulo será implementado em breve.</p>
+    </div>
+
+</main>
+
+<?php include $root . 'shared/footer.php'; ?>

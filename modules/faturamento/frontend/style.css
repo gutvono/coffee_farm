@@ -1,8 +1,4 @@
-/* Estilos para o módulo faturamento */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-h1 {
-    color: #333;
-}
+/* ==========================================================
+   style.css — Estilos específicos do módulo Faturamento
+   Os estilos globais vêm de shared/style.css.
+   ========================================================== */

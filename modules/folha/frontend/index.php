@@ -1,10 +1,22 @@
 <?php
-// Página inicial do módulo folha
-include '../../../shared/header.php';
-include '../../../shared/menu.php';
+$root       = '../../../';
+$page_title = 'Folha de Pagamento';
+$module_css = 'style.css';
+
+include $root . 'shared/header.php';
+include $root . 'shared/sidebar.php';
 ?>
-<h1>Bem-vindo ao Módulo Folha de Pagamento</h1>
-<p>Aqui você gerencia os salários e funcionários.</p>
-<?php
-include '../../../shared/footer.php';
-?>
+
+<main class="page-content">
+
+    <h1 class="page-title">Folha de Pagamento</h1>
+    <p class="page-subtitle">Gestão de funcionários, salários e pagamentos mensais</p>
+
+    <div class="card">
+        <h2 class="card-title">Em desenvolvimento</h2>
+        <p>O conteúdo deste módulo será implementado em breve.</p>
+    </div>
+
+</main>
+
+<?php include $root . 'shared/footer.php'; ?>

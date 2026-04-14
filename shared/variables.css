@@ -1,0 +1,123 @@
+/* ==========================================================
+   variables.css — Variáveis globais de design do Coffee Farm ERP
+
+   Este arquivo define a paleta de cores, espaçamentos, tipografia
+   e outras constantes visuais. Ao alterar um valor aqui, toda a
+   interface é atualizada automaticamente.
+
+   Como usar em outros arquivos CSS:
+     color: var(--color-primary);
+     padding: var(--space-md);
+   ========================================================== */
+
+:root {
+
+  /* ----------------------------------------------------------
+     PALETA DE CORES
+     Baseada nas cores da fazenda de café: verdes da planta,
+     marrons do grão torrado, e neutros para leitura.
+  ---------------------------------------------------------- */
+
+  /* Verdes — identidade principal da marca */
+  --green-dark:    #3b5239;   /* Verde escuro: usado no header e botões primários */
+  --green-light:   #a9b8a2;   /* Verde claro: usado em bordas, destaques suaves */
+  --green-faint:   #eef1ec;   /* Verde quase branco: fundo de seções destaque */
+
+  /* Marrons — remetem ao café torrado */
+  --brown-dark:    #322015;   /* Marrom muito escuro: textos de contraste alto */
+  --brown-mid:     #75442a;   /* Marrom médio: links, acentos, ícones */
+  --brown-light:   #c4956a;   /* Marrom claro: hover em elementos marrons */
+
+  /* Neutros — para fundos, textos e bordas */
+  --white:         #ffffff;
+  --gray-50:       #f7f7f5;   /* Fundo geral da página */
+  --gray-100:      #eeeeea;   /* Fundo de cards, linhas zebradas */
+  --gray-200:      #ddddd8;   /* Bordas suaves */
+  --gray-400:      #9a9a90;   /* Texto desabilitado, placeholder */
+  --gray-700:      #444440;   /* Texto secundário */
+  --black:         #1a1a18;   /* Texto principal */
+
+  /* ----------------------------------------------------------
+     CORES SEMÂNTICAS
+     Estas variáveis apontam para as cores da paleta acima.
+     Use estas nos componentes — nunca os valores brutos diretamente.
+     Assim, se a paleta mudar, basta trocar aqui.
+  ---------------------------------------------------------- */
+
+  --color-primary:        var(--green-dark);      /* Cor principal da marca */
+  --color-primary-hover:  #2e4129;                /* Hover do primário (um tom mais escuro) */
+  --color-primary-light:  var(--green-light);     /* Versão clara do primário */
+  --color-accent:         var(--brown-mid);        /* Cor de destaque / acento */
+  --color-accent-hover:   var(--brown-light);     /* Hover do acento */
+
+  --color-bg:             var(--gray-50);         /* Fundo do corpo da página */
+  --color-surface:        var(--white);           /* Fundo de cards e painéis */
+  --color-border:         var(--gray-200);        /* Cor padrão de bordas */
+
+  --color-text:           var(--black);           /* Texto principal */
+  --color-text-muted:     var(--gray-700);        /* Texto secundário / rótulos */
+  --color-text-disabled:  var(--gray-400);        /* Texto desabilitado */
+
+  /* Feedback visual (sucesso, erro, aviso) */
+  --color-success:        #2e6b3e;
+  --color-success-bg:     #e8f5eb;
+  --color-error:          #8b2020;
+  --color-error-bg:       #fdeaea;
+  --color-warning:        #7a5c00;
+  --color-warning-bg:     #fff8e1;
+
+  /* ----------------------------------------------------------
+     LAYOUT — SIDEBAR E HEADER
+  ---------------------------------------------------------- */
+
+  --sidebar-width:        240px;    /* Largura do sidebar aberto */
+  --header-height:        56px;     /* Altura da barra de topo */
+
+  /* ----------------------------------------------------------
+     TIPOGRAFIA
+  ---------------------------------------------------------- */
+
+  --font-family:    'Segoe UI', system-ui, Arial, sans-serif;
+  --font-size-xs:   0.75rem;   /* 12px */
+  --font-size-sm:   0.875rem;  /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg:   1.125rem;  /* 18px */
+  --font-size-xl:   1.375rem;  /* 22px */
+  --font-size-2xl:  1.75rem;   /* 28px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold:   700;
+
+  --line-height: 1.6;
+
+  /* ----------------------------------------------------------
+     ESPAÇAMENTO
+     Baseado em múltiplos de 4px para consistência.
+  ---------------------------------------------------------- */
+
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-2xl:  48px;
+
+  /* ----------------------------------------------------------
+     BORDAS E SOMBRAS
+  ---------------------------------------------------------- */
+
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.10);
+
+  /* ----------------------------------------------------------
+     TRANSIÇÕES
+     Use var(--transition) para animações suaves e consistentes.
+  ---------------------------------------------------------- */
+
+  --transition: 0.22s ease;
+}
