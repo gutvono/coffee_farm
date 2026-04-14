@@ -1,17 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
-  <!-- Ícone: grão de café estilizado dentro de uma folha -->
-  <g>
-    <!-- Folha externa -->
-    <ellipse cx="24" cy="24" rx="16" ry="20" fill="#3b5239"/>
-    <!-- Grão de café (divisão interna) -->
-    <path d="M24 6 C24 6 14 14 14 24 C14 34 24 42 24 42" stroke="#a9b8a2" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-    <path d="M24 6 C24 6 34 14 34 24 C34 34 24 42 24 42" stroke="#a9b8a2" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-    <!-- Linha central do grão -->
-    <line x1="24" y1="6" x2="24" y2="42" stroke="#a9b8a2" stroke-width="1.2" stroke-linecap="round"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 44 44"
+     width="44"
+     height="44"
+     fill="none">
+  <!--
+    Ícone do Coffee Farm ERP: grão de café estilizado dentro de uma folha.
 
-  <!-- Texto: "Coffee Farm" em verde escuro -->
-  <text x="52" y="22" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#3b5239">Coffee Farm</text>
-  <!-- Texto: "ERP" em marrom, com espaçamento maior para dar destaque -->
-  <text x="52" y="38" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600" fill="#75442a" letter-spacing="3">ERP</text>
+    O SVG usa atributos width/height explícitos (44×44) para que o navegador
+    conheça o tamanho intrínseco do arquivo mesmo antes do CSS carregar.
+    O CSS em shared/style.css redimensiona a imagem para o tamanho adequado
+    no header (32px).
+  -->
+
+  <!-- Folha / casca externa do grão -->
+  <ellipse cx="22" cy="22" rx="15" ry="19" fill="#3b5239"/>
+
+  <!-- Divisão esquerda do grão de café -->
+  <path
+    d="M22 5 C22 5 13 13 13 22 C13 31 22 39 22 39"
+    stroke="#a9b8a2"
+    stroke-width="1.6"
+    fill="none"
+    stroke-linecap="round"/>
+
+  <!-- Divisão direita do grão de café -->
+  <path
+    d="M22 5 C22 5 31 13 31 22 C31 31 22 39 22 39"
+    stroke="#a9b8a2"
+    stroke-width="1.6"
+    fill="none"
+    stroke-linecap="round"/>
+
+  <!-- Linha central (nervura do grão) -->
+  <line
+    x1="22" y1="5"
+    x2="22" y2="39"
+    stroke="#a9b8a2"
+    stroke-width="1.2"
+    stroke-linecap="round"/>
 </svg>

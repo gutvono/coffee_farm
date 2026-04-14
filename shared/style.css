@@ -114,11 +114,27 @@ a:hover {
   text-decoration: none;
 }
 
+/*
+  Tamanho padrão de ícones de logo em headers: 28–32px de altura.
+  Usamos 32px — tamanho comum em ferramentas SaaS (Notion, Linear, etc.).
+  Os atributos width/height no <img> (em header.php) garantem o mesmo tamanho
+  mesmo antes do CSS carregar, evitando o "salto" de layout.
+*/
 .app-logo img {
-  height: 36px;
-  width: auto;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
   /* Inverte as cores do SVG para ficar legível no fundo escuro */
   filter: brightness(0) invert(1);
+}
+
+/* Nome da aplicação ao lado do ícone */
+.app-name {
+  font-size: var(--font-size-sm);    /* 14px — discreto mas legível */
+  font-weight: var(--font-weight-bold);
+  color: var(--white);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 /* ----------------------------------------------------------

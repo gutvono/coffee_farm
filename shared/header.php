@@ -77,7 +77,7 @@ if (!isset($page_title)) {
         <!-- O JavaScript em sidebar.php controla o comportamento -->
         <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Abrir ou fechar menu">
             <!-- Ícone de três linhas (hambúrguer) desenhado em SVG -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                 <line x1="3" y1="6"  x2="21" y2="6"/>
                 <line x1="3" y1="12" x2="21" y2="12"/>
                 <line x1="3" y1="18" x2="21" y2="18"/>
@@ -85,11 +85,15 @@ if (!isset($page_title)) {
         </button>
 
         <!-- Logo: clicável, leva à página inicial -->
+        <!-- width e height no <img> garantem o tamanho correto mesmo antes do CSS carregar -->
         <a href="<?= $root ?>index.php" class="app-logo">
             <img
                 src="<?= $root ?>shared/assets/logo.svg"
                 alt="Coffee Farm ERP logo"
+                width="32"
+                height="32"
             >
+            <span class="app-name">Coffee Farm ERP</span>
         </a>
 
     </header>
