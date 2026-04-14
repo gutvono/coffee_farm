@@ -1,104 +1,135 @@
 <?php
-// Arquivo: EstoqueRepository
-// Responsável pelo acesso ao banco de dados para o módulo de estoque
-// Contém queries SQL para interagir com as tabelas produto, estoque e movimentacao_estoque
+// =============================================================
+// EstoqueRepository
+// Responsável por todas as consultas SQL do módulo de estoque.
+//
+// IMPORTANTE: Esta classe é privada ao módulo.
+// Outros módulos NÃO devem instanciá-la diretamente.
+// Use sempre o EstoqueService para acessar dados de estoque.
+// =============================================================
 
 class EstoqueRepository {
+
     private $pdo;
 
-    // Construtor: Recebe a conexão PDO
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }
 
-    // Função: Listar todos os produtos em estoque
-    // Retorna um array com id_produto, nome, quantidade, localizacao
-    public function listarEstoque() {
-        $sql = "SELECT e.id_produto, p.nome, e.quantidade, e.localizacao
-                FROM estoque e
-                JOIN produto p ON e.id_produto = p.id
+    // -------------------------------------------------------------
+    // Retorna todos os produtos ativos com o saldo total de estoque.
+    // Usa LEFT JOIN para incluir produtos que ainda não têm saldo
+    // registrado na tabela estoque (saldo será NULL → tratado no Service).
+    // -------------------------------------------------------------
+    public function findAllProdutos() {
+        $sql = "SELECT p.id, p.nome, p.tipo, p.unidade,
+                       COALESCE(SUM(e.quantidade), 0) AS quantidade
+                FROM produto p
+                LEFT JOIN estoque e ON e.id_produto = p.id
+                WHERE p.ativo = 1
+                GROUP BY p.id, p.nome, p.tipo, p.unidade
                 ORDER BY p.nome";
+
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll();
+    }
+
+    // -------------------------------------------------------------
+    // Retorna um único produto ativo pelo ID com o saldo total.
+    // Retorna false se o produto não existir ou estiver inativo.
+    // -------------------------------------------------------------
+    public function findProdutoById($id) {
+        $sql = "SELECT p.id, p.nome, p.tipo, p.unidade,
+                       COALESCE(SUM(e.quantidade), 0) AS quantidade
+                FROM produto p
+                LEFT JOIN estoque e ON e.id_produto = p.id
+                WHERE p.id = :id AND p.ativo = 1
+                GROUP BY p.id, p.nome, p.tipo, p.unidade";
+
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch();
     }
 
-    // Função: Registrar entrada de estoque
-    // Insere na movimentacao_estoque e atualiza a quantidade no estoque
-    public function registrarEntradaEstoque($id_produto, $quantidade, $motivo = '') {
-        // Iniciar transação para garantir consistência
-        $this->pdo->beginTransaction();
-        try {
-            // Inserir movimentação
-            $sqlMov = "INSERT INTO movimentacao_estoque (id_produto, tipo, quantidade, motivo)
-                       VALUES (:id_produto, 'entrada', :quantidade, :motivo)";
-            $stmtMov = $this->pdo->prepare($sqlMov);
-            $stmtMov->execute([
-                ':id_produto' => $id_produto,
-                ':quantidade' => $quantidade,
-                ':motivo' => $motivo
-            ]);
+    // -------------------------------------------------------------
+    // Retorna o saldo total de um produto somando todos os depósitos.
+    // COALESCE garante 0 quando não há linha na tabela estoque.
+    // -------------------------------------------------------------
+    public function findSaldoProduto($produtoId) {
+        $sql = "SELECT COALESCE(SUM(quantidade), 0) AS saldo
+                FROM estoque
+                WHERE id_produto = :id";
 
-            // Atualizar estoque: aumentar quantidade
-            $sqlEst = "UPDATE estoque SET quantidade = quantidade + :quantidade WHERE id_produto = :id_produto";
-            $stmtEst = $this->pdo->prepare($sqlEst);
-            $stmtEst->execute([
-                ':quantidade' => $quantidade,
-                ':id_produto' => $id_produto
-            ]);
-
-            // Confirmar transação
-            $this->pdo->commit();
-            return true;
-        } catch (Exception $e) {
-            // Reverter em caso de erro
-            $this->pdo->rollBack();
-            return false;
-        }
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $produtoId]);
+        return $stmt->fetch();
     }
 
-    // Função: Registrar saída de estoque
-    // Insere na movimentacao_estoque e atualiza a quantidade no estoque
-    public function registrarSaidaEstoque($id_produto, $quantidade, $motivo = '') {
-        // Verificar se há quantidade suficiente
-        $sqlCheck = "SELECT quantidade FROM estoque WHERE id_produto = :id_produto";
-        $stmtCheck = $this->pdo->prepare($sqlCheck);
-        $stmtCheck->execute([':id_produto' => $id_produto]);
-        $estoqueAtual = $stmtCheck->fetchColumn();
+    // -------------------------------------------------------------
+    // Retorna o saldo de um produto em um depósito específico.
+    // Retorna false se não houver registro para essa combinação.
+    // -------------------------------------------------------------
+    public function findSaldoPorDeposito($produtoId, $depositoId) {
+        $sql = "SELECT COALESCE(quantidade, 0) AS saldo
+                FROM estoque
+                WHERE id_produto = :produtoId AND id_deposito = :depositoId";
 
-        if ($estoqueAtual < $quantidade) {
-            return false; // Quantidade insuficiente
-        }
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':produtoId'  => $produtoId,
+            ':depositoId' => $depositoId,
+        ]);
+        return $stmt->fetch();
+    }
 
-        // Iniciar transação
-        $this->pdo->beginTransaction();
-        try {
-            // Inserir movimentação
-            $sqlMov = "INSERT INTO movimentacao_estoque (id_produto, tipo, quantidade, motivo)
-                       VALUES (:id_produto, 'saida', :quantidade, :motivo)";
-            $stmtMov = $this->pdo->prepare($sqlMov);
-            $stmtMov->execute([
-                ':id_produto' => $id_produto,
-                ':quantidade' => $quantidade,
-                ':motivo' => $motivo
-            ]);
+    // -------------------------------------------------------------
+    // Retorna o histórico de movimentações de um produto,
+    // ordenado do mais recente para o mais antigo.
+    // -------------------------------------------------------------
+    public function findMovimentacoes($produtoId) {
+        $sql = "SELECT id, tipo, quantidade, motivo AS origem,
+                       data_movimentacao AS data
+                FROM movimentacao_estoque
+                WHERE id_produto = :id
+                ORDER BY data_movimentacao DESC";
 
-            // Atualizar estoque: diminuir quantidade
-            $sqlEst = "UPDATE estoque SET quantidade = quantidade - :quantidade WHERE id_produto = :id_produto";
-            $stmtEst = $this->pdo->prepare($sqlEst);
-            $stmtEst->execute([
-                ':quantidade' => $quantidade,
-                ':id_produto' => $id_produto
-            ]);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $produtoId]);
+        return $stmt->fetchAll();
+    }
 
-            // Confirmar transação
-            $this->pdo->commit();
-            return true;
-        } catch (Exception $e) {
-            // Reverter em caso de erro
-            $this->pdo->rollBack();
-            return false;
-        }
+    // -------------------------------------------------------------
+    // Retorna todos os depósitos ativos cadastrados.
+    // -------------------------------------------------------------
+    public function findAllDepositos() {
+        $sql = "SELECT id, nome, localizacao
+                FROM deposito
+                WHERE ativo = 1
+                ORDER BY nome";
+
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll();
+    }
+
+    // -------------------------------------------------------------
+    // Verifica se um produto existe e está ativo.
+    // Usado pelo Service para validações antes de consultas.
+    // -------------------------------------------------------------
+    public function produtoExiste($id) {
+        $sql  = "SELECT id FROM produto WHERE id = :id AND ativo = 1";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch() !== false;
+    }
+
+    // -------------------------------------------------------------
+    // Verifica se um depósito existe e está ativo.
+    // -------------------------------------------------------------
+    public function depositoExiste($id) {
+        $sql  = "SELECT id FROM deposito WHERE id = :id AND ativo = 1";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch() !== false;
     }
 }
 ?>
